@@ -116,7 +116,7 @@ FusionFaceGAN/
 ├── 📓 FusionFaceGAN_Fast.ipynb       ← Model eğitim notebook'u (Google Colab'da açın)
 │
 ├── 📂 fusionface_app/                 ← Arayüz uygulaması (lokalde çalıştırın)
-│   ├── 🟢 baslat.bat                 ← ÇİFT TIKLA → Uygulama başlar!
+│   ├── 🟢 calistir.bat                 ← ÇİFT TIKLA → Uygulama başlar!
 │   ├── app.py                         ← Gradio arayüz kodu
 │   ├── model.py                       ← Generator mimari tanımı
 │   ├── best_generator.pth             ← Eğitilmiş model ağırlıkları
@@ -140,8 +140,8 @@ FusionFaceGAN/
 
 | Dosya | Açıklama | Nasıl Kullanılır |
 |-------|----------|-----------------|
-| `baslat.bat` | **Tek tıkla çalıştırma** | Çift tıkla → kütüphaneler kurulur → arayüz açılır |
-| `app.py` | Gradio web arayüzü | `baslat.bat` otomatik çalıştırır |
+| `calistir.bat` | **Tek tıkla çalıştırma** | Çift tıkla → kütüphaneler kurulur → arayüz açılır |
+| `app.py` | Gradio web arayüzü | `calistir.bat` otomatik çalıştırır |
 | `model.py` | Generator sınıf tanımı | `app.py` tarafından otomatik yüklenir |
 | `best_generator.pth` | Eğitilmiş model | `app.py` ile aynı klasörde olmalı |
 | `FusionFaceGAN_Fast.ipynb` | Eğitim kodu | Colab'da aç → GPU (T4) seç → çalıştır |
@@ -155,7 +155,7 @@ FusionFaceGAN/
 
 ### Windows — Tek Tıkla
 
-> **`baslat.bat`** dosyasına çift tıklayın. Gerekli kütüphaneler otomatik kurulur ve tarayıcınızda arayüz açılır.
+> **`calistir.bat`** dosyasına çift tıklayın. Gerekli kütüphaneler otomatik kurulur ve tarayıcınızda arayüz açılır.
 
 ### Manuel Kurulum
 
