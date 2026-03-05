@@ -108,46 +108,39 @@ ConvTranspose2d yerine kullanılan orijinal upsampling bloğu. Bilinear upsample
 
 ---
 
+## 📓 Eğitim Notebook'u
+
+Model eğitim notebook'u boyut sınırı nedeniyle GitHub'a yüklenememiştir. Aşağıdaki Google Drive bağlantısından erişebilirsiniz:
+
+> 📥 **[FusionFaceGAN_Fast.ipynb — Google Drive'dan İndir](https://drive.google.com/file/d/1gWG6gUINOh9dr7MEPAe10O2SEgXIcwTQ/view?usp=sharing)**
+
+Notebook'u Google Colab'da açıp Runtime → GPU (T4) seçerek modeli sıfırdan eğitebilirsiniz.
+
+---
+
 ## 📁 Proje Yapısı
 
 ```
 FusionFaceGAN/
 │
-├── 📓 FusionFaceGAN_Fast.ipynb       ← Model eğitim notebook'u (Google Colab'da açın)
-│
-├── 📂 fusionface_app/                 ← Arayüz uygulaması (lokalde çalıştırın)
-│   ├── 🟢 calistir.bat                 ← ÇİFT TIKLA → Uygulama başlar!
-│   ├── app.py                         ← Gradio arayüz kodu
-│   ├── model.py                       ← Generator mimari tanımı
-│   ├── best_generator.pth             ← Eğitilmiş model ağırlıkları
-│   └── requirements.txt               ← Python bağımlılıkları
-│
-├── 📂 outputs_fusion/                 ← Eğitim çıktıları
-│   ├── 📂 models/
-│   │   ├── best_generator.pth         ← En iyi FID modeli
-│   │   ├── generator_final.pth        ← Son epoch modeli
-│   │   └── generator_traced.pt        ← TorchScript export
-│   ├── 📂 samples/                    ← Epoch bazlı üretilen yüzler
-│   ├── 📂 logs/
-│   │   └── log.json                   ← Eğitim logları (FID, süre, config)
-│   ├── report.png                     ← Eğitim grafikleri (loss, FID, fusion weights)
-│   └── comparison.png                 ← Gerçek vs üretilen karşılaştırma
-│
-└── 📄 README.md                       ← Bu dosya
+├── 📄 README.md                ← Bu dosya
+├── 📄 .gitignore
+├── 🟢 calistir.bat             ← ÇİFT TIKLA → Kütüphaneler kurulur + arayüz açılır!
+├── 🐍 app.py                  ← Gradio web arayüzü
+├── 🐍 model.py                ← Generator mimari tanımı
+├── 🧠 best_generator.pth      ← Eğitilmiş model ağırlıkları (FID: 36.8)
+└── 📋 requirements.txt         ← Python bağımlılıkları
 ```
 
 ### Hangi Dosya Ne İşe Yarar?
 
 | Dosya | Açıklama | Nasıl Kullanılır |
 |-------|----------|-----------------|
-| `calistir.bat` | **Tek tıkla çalıştırma** | Çift tıkla → kütüphaneler kurulur → arayüz açılır |
-| `app.py` | Gradio web arayüzü | `calistir.bat` otomatik çalıştırır |
-| `model.py` | Generator sınıf tanımı | `app.py` tarafından otomatik yüklenir |
-| `best_generator.pth` | Eğitilmiş model | `app.py` ile aynı klasörde olmalı |
-| `FusionFaceGAN_Fast.ipynb` | Eğitim kodu | Colab'da aç → GPU (T4) seç → çalıştır |
-| `report.png` | Eğitim grafikleri | Loss, FID, fusion weights grafikleri |
-| `comparison.png` | Gerçek vs üretilen | Yan yana karşılaştırma |
-| `log.json` | Eğitim detayları | FID, epoch, süre, GPU bilgisi |
+| `calistir.bat` | **Tek tıkla çalıştırma** | Çift tıkla → kütüphaneler kurulur → tarayıcı açılır → yüz üretmeye başla! |
+| `app.py` | Gradio web arayüzü | `calistir.bat` otomatik çalıştırır veya `python app.py` |
+| `model.py` | FusionGenerator sınıf tanımı | `app.py` tarafından otomatik import edilir |
+| `best_generator.pth` | Eğitilmiş model ağırlıkları | `app.py` ile aynı klasörde olmalı — modelin beyni |
+| `requirements.txt` | Python bağımlılıkları | `pip install -r requirements.txt` ile kurulur |
 
 ---
 
@@ -161,8 +154,8 @@ FusionFaceGAN/
 
 ```bash
 # 1. Repoyu klonla
-git clone https://github.com/KULLANICI/FusionFaceGAN.git
-cd FusionFaceGAN/fusionface_app
+git clone https://github.com/dedoli28/FusionFaceGAN.git
+cd FusionFaceGAN
 
 # 2. Bağımlılıkları yükle
 pip install -r requirements.txt
